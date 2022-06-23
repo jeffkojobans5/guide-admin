@@ -1,0 +1,120 @@
+body , html  *{
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+
+html {
+    box-sizing: border-box;
+  }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.log {
+    font-family: "poppins";
+    height: 100vh;
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.reg {
+    background-color: orange;
+    padding: 0.3rem;
+    color: white;
+    border-radius: 5px;
+    margin: 1rem;
+}
+
+.sign-reg {
+    text-align: center;
+    margin-top: 2rem;
+    color: white;
+    font-weight: 400;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+label {
+    margin-top: 3rem !important;
+
+}
+
+input {
+    padding: 0.5rem !important;
+    margin-bottom: 1rem;
+    outline: none;
+    width: 100%;
+}
+
+.register {
+    width: 300px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 5px;
+
+    h2 {
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+    form {
+
+        label {
+            font-family: "poppins";
+        }
+        input {
+            font-family: "poppins";
+            display: block;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+    }
+
+    .box {
+        margin-top: 1rem;
+    }
+}
+
+
+button {
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}        
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+}
+
+.swal2-container {
+    font-family: "poppins"
+}
+
