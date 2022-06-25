@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { FaTumblrSquare } from "react-icons/fa"
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom"
+import { url } from "../../formSource"
 
 function Login () {
     const navigate = useNavigate()
@@ -54,7 +55,7 @@ function Login () {
           validationSchema={SigninSchema}
           onSubmit={values => {
                 setSignInLoading(FaTumblrSquare)
-            axios.post('http://localhost:8800/api/auth/login' ,  values , {
+            axios.post(`${url}/api/auth/login` ,  values , {
               withCredentials: true,
               headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}              
             } ).then((res)=>{

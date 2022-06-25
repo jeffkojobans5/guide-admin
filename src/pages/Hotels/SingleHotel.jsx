@@ -7,6 +7,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
+import { url } from "../../formSource"
 
 const SingleHotel = () => {
 
@@ -17,7 +18,7 @@ const SingleHotel = () => {
 
   function FetchHotel () {
         setLoading(true)
-        axios.get(`http://localhost:8800/api/hotels/find/${id}`).then((res)=>{
+        axios.get(`${url}/api/hotels/find/${id}`).then((res)=>{
             setLoading(false)
             setData(res.data)
             console.log(res.data)
@@ -43,7 +44,6 @@ const SingleHotel = () => {
             {
               !loading && (
                 <>
-                <div className="edit-button"><Link to={`/hotel/edit/${id}`}> Edit </Link></div> <br/><br/>
                   <div className="item">
                     <img
                       src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"

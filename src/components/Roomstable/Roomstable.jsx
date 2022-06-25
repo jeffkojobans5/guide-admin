@@ -5,6 +5,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { RoomsColumns } from "../../Datablesource/Roomstablesource";
 import axios from "axios"
 import Swal from 'sweetalert2'
+import { url } from "../../formSource";
 
 const Roomstable = () => {
   const navigate = useNavigate()
@@ -20,7 +21,7 @@ const Roomstable = () => {
       denyButtonText: `Don't Delete`,
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:8800/api/users/${_id}` , {
+        axios.delete(`${url}/api/users/${_id}` , {
           withCredentials: true,
           headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}            
         });
@@ -37,14 +38,15 @@ const Roomstable = () => {
 
   function FetchRooms () {
       setLoading(true)
-    axios.get(`http://localhost:8800/api/rooms` , {
+    axios.get(`${url}/api/rooms` , {
       withCredentials: true,
       headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}      
     }).then((res)=>{
+
         setLoading(false)
         setData(res.data)
     }).catch ((err)=>{
-        console.log(err)
+        console.log('rooms error' , err)
         setLoading(false)
     })
 }   

@@ -5,7 +5,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { UserColumns } from "../../Datablesource/Usertablesource";
 import axios from "axios"
 import Swal from 'sweetalert2'
-
+import { url} from "../../formSource";
 
 const Hoteltable = () => {
   const navigate = useNavigate()
@@ -21,7 +21,7 @@ const Hoteltable = () => {
       denyButtonText: `Don't Delete`,
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:8800/api/users/${_id}` , {
+        axios.delete(`${url}/api/users/${_id}` , {
           withCredentials: true,
           headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}            
         });
@@ -38,7 +38,7 @@ const Hoteltable = () => {
 
   function FetchUser () {
         setLoading(true)
-    axios.get(`http://localhost:8800/api/users` , {
+    axios.get(`${url}/api/users` , {
       withCredentials: true,
       headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}      
     }).then((res)=>{

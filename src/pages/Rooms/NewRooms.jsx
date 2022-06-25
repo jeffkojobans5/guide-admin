@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState , useEffect} from "react";
-import { roomInputs } from "../../formSource";
+import { roomInputs , url} from "../../formSource";
 import axios from "axios";
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom"
@@ -20,7 +20,7 @@ const NewRoom = () => {
 
   function FetchRooms () {
       setLoading(true)
-    axios.get(`http://localhost:8800/api/hotels` , {
+    axios.get(`${url}/api/hotels/allHotels` , {
       withCredentials: true,
       headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}      
     }).then((res)=>{
@@ -45,7 +45,7 @@ useEffect(()=>{
     e.preventDefault();
     const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
     try {
-      await axios.post(`http://localhost:8800/api/rooms/${hotelId}`, { ...info, roomNumbers } , {
+      await axios.post(`${url}/api/rooms/create/${hotelId}`, { ...info, roomNumbers } , {
         withCredentials: true,
         headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}         
       });
@@ -67,7 +67,6 @@ useEffect(()=>{
     }
   };
 
-  console.log(info)
   return (
     <div className="new">
       <Sidebar />

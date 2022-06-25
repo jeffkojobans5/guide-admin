@@ -1,7 +1,7 @@
 import { useState , useEffect} from "react";
 import "./NewHotel.scss";
 import axios from "axios";
-import { hotelInputs } from "../../formSource"
+import { hotelInputs , url } from "../../formSource"
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
@@ -20,7 +20,7 @@ const NewHotel = () => {
 
   function handleClick (e) {
     e.preventDefault();
-    axios.put(`http://localhost:8800/api/hotels/${id}`, info , { 
+    axios.put(`${url}/api/hotels/${id}`, info , { 
       withCredentials: true,
       headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}
      }
@@ -32,21 +32,9 @@ const NewHotel = () => {
   }
 
 
-//   function FetchHotel () {
-//     setLoading(true)
-//     axios.get(`http://localhost:8800/api/hotels/find/${id}`).then((res)=>{
-//         setLoading(false)
-//         setData(res.data)
-//         console.log(res.data)
-//     }).catch ((err)=>{
-//         console.log(err)
-//         setLoading(false)
-//     })
-// }   
-
 useEffect(()=>{
   setLoading(true)
-  axios.get(`http://localhost:8800/api/hotels/find/${id}`).then((res)=>{
+  axios.get(`${url}/api/hotels/find/${id}`).then((res)=>{
       setLoading(false)
       setData(res.data)
       console.log(res.data)

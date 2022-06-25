@@ -1,14 +1,13 @@
 import { useState , useEffect} from "react";
 import "./EditUser.scss";
 import axios from "axios";
-import { userInputs } from "../../formSource"
+import { userInputs , url } from "../../formSource"
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useParams } from "react-router-dom"
 import Swal from 'sweetalert2'
 import { useNavigate } from "react-router-dom"
-
 
 const NewHotel = () => {
   const { id } = useParams()
@@ -24,7 +23,7 @@ const NewHotel = () => {
 
 
   function handleClick (e) {
-      axios.put(`http://localhost:8800/api/users/${id}`, { isAdmin : status } , { 
+      axios.put(`${url}/api/users/${id}`, { isAdmin : status } , { 
         withCredentials: true,
           headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}
       }
@@ -51,7 +50,7 @@ const NewHotel = () => {
 
 useEffect(()=>{
   setLoading(true)
-  axios.get(`http://localhost:8800/api/users/${id}` , {
+  axios.get(`${url}/api/users/${id}` , {
               withCredentials: true,
               headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}      
   }).then((res)=>{

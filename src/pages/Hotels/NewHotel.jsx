@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./NewHotel.scss";
 import axios from "axios";
-import { hotelInputs } from "../../formSource"
+import { hotelInputs , url } from "../../formSource"
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
@@ -41,11 +41,10 @@ const handleClick = async (e) => {
         photos: list,
       };
 
-      await axios.post("http://localhost:8800/api/hotels", newhotel , { 
+      await axios.post(`${url}/api/hotels/createHotel`, newhotel , { 
           withCredentials: true,
           headers: {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'}
       });
-
                 Swal.fire(
                     'Success!',
                     'Hotel Added!',
