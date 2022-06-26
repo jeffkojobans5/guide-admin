@@ -23,7 +23,7 @@ const Sidebar = () => {
   function logOut() {
     localStorage.removeItem('username');
             setTimeout(()=>{
-              window.location = "http://localhost:3000/"  
+              window.location = "https://guide-admin.vercel.app/"  
             }, 2000)
             
             let timerInterval
