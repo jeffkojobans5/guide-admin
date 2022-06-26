@@ -68,8 +68,8 @@ function Login () {
                   )                
                 localStorage.setItem("username" ,  res.data.username)
                 setTimeout(() => {
-                  window.location = "http://localhost:3000/"  
-                }, 2000);
+                  window.location = "https://guide-admin.vercel.app/"  
+                }, 1000);
             }).catch ((err)=>{
                 console.log(err)
                 setSignInLoading(false)
